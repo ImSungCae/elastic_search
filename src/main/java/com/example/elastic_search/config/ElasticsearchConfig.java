@@ -1,27 +1,17 @@
 package com.example.elastic_search.config;
 
-
-import co.elastic.clients.elasticsearch.ElasticsearchClient;
-import co.elastic.clients.json.jackson.JacksonJsonpMapper;
-import co.elastic.clients.transport.ElasticsearchTransport;
-import co.elastic.clients.transport.rest_client.RestClientTransport;
-import org.apache.http.HttpHost;
-import org.elasticsearch.client.RestClient;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.elasticsearch.client.ClientConfiguration;
+import org.springframework.data.elasticsearch.client.elc.ElasticsearchConfiguration;
 
 @Configuration
-public class ElasticsearchConfig {
-
-    @Bean
-    public ElasticsearchClient elasticsearchClient() {
-        RestClient restClient = RestClient.builder(
-                HttpHost.create("http://localhost:9200")
-        ).build();
-
-        ElasticsearchTransport transport = new RestClientTransport(
-                restClient, new JacksonJsonpMapper());
-
-        return new ElasticsearchClient(transport);
+public class ElasticsearchConfig extends ElasticsearchConfiguration {
+    @Override
+    public ClientConfiguration clientConfiguration() {
+        return ClientConfiguration.builder()
+                .connectedTo("localhost:9200")
+                .withConnectTimeout(120000)  // 커넥터 유지 시간
+                .withSocketTimeout(120000)
+                .build();
     }
 }

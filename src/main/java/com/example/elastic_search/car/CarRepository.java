@@ -8,4 +8,9 @@ import java.util.List;
 @Repository
 public interface CarRepository extends JpaRepository<Car,Long> {
     List<Car> findByCarType(String carType);
+    List<Car> findByCarTypeAndAndDisplacementCCAndRegistrationDateAndUsagePurpose(
+            String carType,
+            Integer displacementCC,
+            String registrationDate,
+            String usagePurpose);
 }

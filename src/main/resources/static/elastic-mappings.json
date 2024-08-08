@@ -1,0 +1,46 @@
+{
+  "properties": {
+
+    "id": {
+      "type": "keyword"
+    },
+
+    "carName": {
+      "type": "text",
+      "analyzer": "korean"
+    },
+
+    "carType": {
+      "type": "text",
+      "analyzer": "korean"
+    },
+
+    "displacementcc": {
+      "type": "integer"
+    },
+
+    "registrationDate": {
+      "type": "date",
+      "format": "yyyy-MM-dd"
+    },
+    "replacementCycle": {
+      "type": "text",
+      "analyzer": "korean"
+    },
+    "seatingCapacity": {
+      "type": "integer"
+    },
+    "usagePurpose": {
+      "type": "text",
+      "analyzer": "korean"
+    },
+    "vehicleType": {
+      "type": "text",
+      "analyzer": "korean"
+    },
+    "weightKg": {
+      "type":"integer"
+    }
+  }
+
+}

@@ -4,10 +4,14 @@ import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Mapping;
+import org.springframework.data.elasticsearch.annotations.Setting;
 
 @Getter
 @Builder
 @Document(indexName = "cars")
+@Setting(settingPath = "static/elastic-settings.json")
+@Mapping(mappingPath = "static/elastic-mappings.json")
 public class CarDocument {
     @Id
     private String id;

@@ -10,7 +10,7 @@ import org.springframework.data.elasticsearch.annotations.Setting;
 import java.time.LocalDateTime;
 
 @Getter
-@Document(indexName = "tasks")
+//@Document(indexName = "tasks")
 @Setting(replicas = 0)
 @Builder
 public class TaskDocument {
